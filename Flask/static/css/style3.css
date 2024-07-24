@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the page takes at least the full height of the viewport */
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+
+
+.contact-buttons {
+    margin-bottom: 20px;
+    text-align: right; /* Align buttons to the right */
+}
+
+.contact-buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px; /* Add some spacing between buttons */
+    cursor: pointer;
+}
+
+.table-container {
+    border: 2px solid #ddd; /* Outer border */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    overflow: hidden; /* Ensures the container doesn't expand beyond its content */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd; /* Vertical lines */
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+table td img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.send-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.send-button button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}

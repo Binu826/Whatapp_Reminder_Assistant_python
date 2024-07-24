@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <title>Processing Messages</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const contactIds = JSON.parse('{{ contact_ids | tojson }}');
+
+            function processNextContact(index) {
+                if (index < contactIds.length) {
+                    const contactId = contactIds[index][0];
+                    fetch(`/generate_message/${contactId}`)
+                        .then(response => {
+                            if (response.ok) {
+                                // Process the next contact after a short delay
+                                setTimeout(() => processNextContact(index + 1), 500);
+                            } else {
+                                console.error(`Failed to process contact ID ${contactId}`);
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                } else {
+                    console.log('Finished processing all contacts');
+                }
+            }
+
+            processNextContact(0);
+        });
+    </script>
+</head>
+<body>
+    <h1>Processing Messages</h1><br>
+    <p>Please wait while we process all messages...</p>
+    <br>    
+    <div class="send-button">
+    <button onclick="window.location.href='{{ url_for('send_message') }}'">Send</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signup Page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+<body>
+<div class="container">
+    <h2>Register</h2>
+    <form method="POST" action="{{ url_for('signin') }}">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}<br>
+            {% for error in form.name.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}<br>
+            {% for error in form.email.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.phone_number.label }}<br>
+            {{ form.phone_number(size=32) }}<br>
+            {% for error in form.phone_number.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.country_code.label }}<br>
+            {{ form.country_code(size=32) }}<br>
+            {% for error in form.country_code.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.company_name.label }}<br>
+            {{ form.company_name(size=32) }}<br>
+            {% for error in form.company_name.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.company_type.label }}<br>
+            {{ form.company_type(size=32) }}<br>
+            {% for error in form.company_type.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.address.label }}<br>
+            {{ form.address(size=32) }}<br>
+            {% for error in form.address.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </p>
+        <div class="send-button">
+            <p>{{ form.submit() }}</p>
+            </div>
+    </form>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+</head>
+<body>
+ 
+<h2>Contact Details</h2>
+
+<div class="contact-buttons">
+    <button onclick="window.location.href='{{ url_for('add_contact') }}'">Add Contact</button>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Country Code</th>
+                <th>Phone Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact[1] }}</td>
+                    <td>{{ contact[2] }}</td>
+                    <td>{{ contact[3] }}</td>
+                    <td>
+                        <div class="send-button">
+                        <form action="{{ url_for('delete_contact', contact_id=contact[0]) }}" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                    
+                </td>
+            </tr>
+            
+    </table>
+</div>
+
+<div class="send-button">
+    <button onclick="window.location.href='{{ url_for('mainpage') }}'">Final Message</button>
+</div>
+
+</body>
+</html>

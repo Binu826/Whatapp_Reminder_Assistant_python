@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" hs-webfonts="true" href="https://fonts.googleapis.com/css?family=Lato|Lato:i,b,bi">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                font-family: Lato, sans-serif;
+                font-size: 18px;
+                background-color: #F5F8FA;
+            }
+            #email {
+                margin: auto;
+                width: 100%;
+                max-width: 600px;
+                background-color: #ffffff;
+            }
+            .header {
+                background-color: #00A4BD;
+                text-align: center;
+                padding: 20px;
+                color: #ffffff;
+            }
+            .content {
+                padding: 30px;
+            }
+            h1 {
+                font-size: 56px;
+                margin: 0;
+            }
+            h2 {
+                font-size: 28px;
+                font-weight: 900;
+                margin: 0 0 10px;
+            }
+            p {
+                font-weight: 100;
+                color:black;
+                margin: 0 0 15px;
+            }
+            .button {
+                background-color: #00A4BD;
+                color: #ffffff;
+                padding: 15px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                border-radius: 5px;
+                margin-top: 20px;
+            }
+            @media screen and (max-width: 600px) {
+                .content {
+                    padding: 20px;
+                }
+                h1 {
+                    font-size: 32px;
+                }
+                h2 {
+                    font-size: 24px;
+                }
+            }
+</style>
+</head>
+<body>
+<div id="email">
+<div class="header">
+<h1>Welcome!</h1>
+</div>
+<div class="content">
+<h2>Welcome to WhatsApp Reminder Assistant!</h2>
+<p>
+                    Hello {{ user_name }},
+</p>
+<p>
+                    Thank you for signing up for WhatsApp Reminder Assistant. We are thrilled to have you on board!
+</p>
+<p>
+                    Our service will help you stay organized and never miss an important task or event again. With WhatsApp Reminder Assistant, you can easily set reminders and get notified directly on your WhatsApp.
+</p>
+<p>
+                    Click the button below to start exploring our features and set your first reminder.
+</p>
+<p style="text-align: center;">
+<a href="{{ url_for('login') }}" class="button">Get Started</a>
+</p>
+<p>
+                    If you have any questions, feel free to reach out to our support team.
+</p>
+<p>
+                    Best regards,<br>
+                    The WhatsApp Reminder Assistant Team
+</p>
+</div>
+</div>
+</body>
+</html>

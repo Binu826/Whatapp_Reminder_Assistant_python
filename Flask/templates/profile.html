@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style4.css') }}">
+</head>
+<body>
+    <div class="container">
+    <center><h1>User Profile</h1></center>
+    {% if mem %}
+    <table>
+        <div class="profile-info">
+            <div class="profile-item">
+        <tr>
+            <th>Name : </th>
+            <td>{{ mem[0] }}</td>
+        </tr>
+            </div>
+            <div class="profile-item">
+        <tr>
+            <th>Email : </th>
+            <td>{{ mem[1] }}</td>
+        </tr>
+    </div>
+        <div class="profile-item">
+        <tr>
+            <th>Phone Number : </th>
+            <td>{{ mem[2] }}</td>
+        </tr>
+    </div>
+        <div class="profile-item">
+        <tr>
+            <th>Company Name : </th>
+            <td>{{ mem[3] }}</td>
+        </tr>
+    </div>
+        <div class="profile-item">
+        <tr>
+            <th>Company Type : </th>
+            <td>{{ mem[4] }}</td>
+        </tr>
+    </div>
+        <div class="profile-item">
+        <tr>
+            <th>Address</th>
+            <td>{{ mem[5] }}</td>
+        </tr>
+    </div>
+    </table>
+
+    {% else %}
+    <p>No profile information available.</p>
+    {% endif %}
+    <br>
+    <center><a href="{{ url_for('message_template') }}">Back to save Message Template</a></center>
+</div>
+</body>
+</html>

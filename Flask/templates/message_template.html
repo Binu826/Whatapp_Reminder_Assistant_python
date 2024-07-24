@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+</head>
+<body>
+    
+
+<div class="navbar">
+        <a href="{{ url_for('contacts') }}">Contact</a>
+        <a href="{{ url_for('profile') }}">View Profile</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+</div>  
+
+<div class="form-container">
+    <h2>Message Template</h2>
+    <form id="messageForm" method="POST" action="{{ url_for('message_template') }}">
+        <label for="type">Type:</label>
+        <select id="type" name="type" onchange="updateAdditionalInfo()">
+            <option value="school">School</option>
+            <option value="gym">Gym</option>
+            <!-- Add more options as needed -->
+        </select>
+        <label for="additional-info">Additional Information:</label>
+        <textarea id="additional-info" name="additional-info" rows="4" placeholder="Enter your message..."></textarea>
+        <input type="hidden" id="Finalmessage" name="Finalmessage"> <!-- Hidden field for Finalmessage -->
+            <input type="submit" value="Save" onclick="saveMessage()">
+    </form>
+    
+</div>
+    
+<script>
+    function updateAdditionalInfo() {
+        const type = document.getElementById('type').value;
+        const additionalInfo = document.getElementById('additional-info');
+        
+        if (type === 'school') {
+            additionalInfo.value = `Dear {Name},\nThis is a friendly reminder regarding the upcoming exam fee of 500 which is due on month of july. Kindly ensure that the payment is made by the specified date to avoid any inconvenience.\nThank you for your prompt attention to this matter.\nBest regards,\nABC School`;
+        } else if (type === 'gym') {
+            additionalInfo.value = `Dear {Name},\nThis is a friendly reminder regarding the upcoming gym fee of 1000 for the month of july. Kindly ensure that the payment is made promptly to continue enjoying our facilities and services without interruption.\nThank you for your attention to this matter.\nBest regards,\nXYZ Gym`;
+        } else {
+            additionalInfo.value = '';
+        }
+    }
+
+    function saveMessage() {
+        const additionalInfo = document.getElementById('additional-info').value;
+        document.getElementById('Finalmessage').value = additionalInfo; // Store additionalInfo in Finalmessage field
+        console.log("Message saved:", additionalInfo); // Replace with actual save logic
+
+        // Submit the form programmatically
+        document.getElementById('messageForm').submit();
+    }
+
+    // Initialize the additional info when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        updateAdditionalInfo();
+    });
+</script>
+</body>
+</html>
